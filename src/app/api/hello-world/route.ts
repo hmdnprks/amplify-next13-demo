@@ -1,12 +1,14 @@
 export async function GET() {
-  // create function to randomize color
-  const randomColor = () => {
-    const colors = ['red', 'green', 'blue']
-    return colors[Math.floor(Math.random() * colors.length)]
-  }
+  // create function to randomize color hex
+  const color = randomColor();
+  console.log('color :>> ', color);
 
   return Response.json({
     message: 'Hello World!',
-    color: randomColor()
+    color
   })
+}
+
+function randomColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16)
 }
